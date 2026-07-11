@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: sujan-xyz-hr
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+    healthCheckPath: /healthz
